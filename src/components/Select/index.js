@@ -16,8 +16,10 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange();
+    // Ajout de l'argument newValue a onchange pour prendre en compte les actions dans la partie filtre
+    onChange(newValue);
     setValue(newValue);
+    // Remplacement de newValue par !collapsed, assure quà chaque clic on inverse l'état du selecteur : il le déplie s'il est replié ou il le replie s'il est déplié
     setCollapsed(newValue);
   };
   return (

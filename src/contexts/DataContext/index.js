@@ -27,10 +27,12 @@ export const DataProvider = ({ children }) => {
     }
   }, []);
   useEffect(() => {
-    if (data) return;
-    getData();
-  });
-  
+    if (!data) {
+      getData().catch((err) => setError(err));
+    }
+  }, [data, getData]); // Ajout de getData comme dépendance
+
+
   return (
     <DataContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
