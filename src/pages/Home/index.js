@@ -12,6 +12,7 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
+
 const Page = () => {
   const { data } = useData();
   // Classement des évènements par date pour récupérer la dernière prestation
@@ -126,7 +127,7 @@ const Page = () => {
             title={last.title}
             date={new Date(last.date)}
             small
-            label="boom"
+            label={last.type}
           />
         )}
       </div>

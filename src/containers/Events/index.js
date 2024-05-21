@@ -19,15 +19,16 @@ const EventList = () => {
       ? data?.events
       // Ajout de filter pour que seuls les événements dont le type correspond à la catégorie sélectionnée soient inclus dans la liste filtrée
       : data?.events.filter((event) => event.type === type)) || []
-  ).filter((event, index) => {
-    if (
-      (currentPage - 1) * PER_PAGE <= index &&
-      PER_PAGE * currentPage > index
-    ) {
-      return true;
-    }
-    return false;
-  });
+  )
+    .filter((event, index) => {
+      if (
+        (currentPage - 1) * PER_PAGE <= index &&
+        PER_PAGE * currentPage > index
+      ) {
+        return true;
+      }
+      return false;
+    });
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
